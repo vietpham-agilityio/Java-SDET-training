@@ -41,53 +41,11 @@ Feature: Search by keyword
     Then user should see information about "Cucumber"
 ```
 
-### The Screenplay implementation
-The sample code in the master branch uses the Screenplay pattern. The Screenplay pattern describes tests in terms of actors and the tasks they perform. Tasks are represented as objects performed by an actor, rather than methods. This makes them more flexible and composable, at the cost of being a bit more wordy. Here is an example:
-```java
-    @Given("{actor} is researching things on the internet")
-    public void researchingThings(Actor actor) {
-        actor.wasAbleTo(NavigateTo.theWikipediaHomePage());
-    }
-
-    @When("{actor} looks up {string}")
-    public void searchesFor(Actor actor, String term) {
-        actor.attemptsTo(
-                LookForInformation.about(term)
-        );
-    }
-
-    @Then("{actor} should see information about {string}")
-    public void should_see_information_about(Actor actor, String term) {
-        actor.attemptsTo(
-                Ensure.that(WikipediaArticle.HEADING).hasText(term)
-        );
-    }
-```
 ### The Action Classes implementation.
-
-A more imperative-style implementation using the Action Classes pattern can be found in the `action-classes` branch. The glue code in this version looks this:
-
-```java
-    @Given("user is researching things on the internet")
-    public void researching_things() {
-        searchActions.navigateToPage();
-    }
-
-    @When("user looks up {string}")
-    public void looks_up(String term) {
-        searchActions.searchFor(term);
-    }
-
-    @Then("user should see information about {string}")
-    public void all_the_result_titles_should_contain_the_word(String term) {
-        searchActions.verifyUserSeeSearchResult(term);
-    }
-```
-
 These classes are declared using the Serenity `@Steps` annotation, shown below:
 
 ```java
-    import actions.SearchActions;
+import actions.SearchActions;
 
 @Steps
 SearchActions searchActions;
