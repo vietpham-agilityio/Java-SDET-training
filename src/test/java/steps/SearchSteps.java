@@ -1,4 +1,4 @@
-package starter.steps;
+package steps;
 
 import actions.SearchActions;
 import io.cucumber.java.en.Given;
