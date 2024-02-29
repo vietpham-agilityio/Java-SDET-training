@@ -20,9 +20,4 @@ public abstract class AbstractGuiElement extends PageObject implements IGuiEleme
     public WebElementFacade getWrappedElement() {
         return this.element;
     }
-
-//    @Override
-//    public String getGuiElementName() {
-//        return this.name;
-//    }
 }

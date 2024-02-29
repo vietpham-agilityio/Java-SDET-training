@@ -4,12 +4,10 @@ import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.di.SerenityInfrastructure;
 import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
 import net.thucydides.model.util.EnvironmentVariables;
-import object_behaviors.contants.ISerenityConfigConstants;
+import contants.ISerenityConfigConstants;
 import org.assertj.core.api.SoftAssertions;
 import pages.SearchPage;
 
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchActions {
 

@@ -1,4 +1,4 @@
-package object_behaviors.contants;
+package contants;
 
 public interface ISerenityConfigConstants {
     String BASEURL = "base.url";
