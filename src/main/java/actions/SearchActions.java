@@ -20,7 +20,7 @@ public class SearchActions {
     }
 
     public void searchFor(String term) {
-        searchPage.searchInput().getWrappedElement().typeAndEnter(term);
+        searchPage.searchInput().typeAndEnter(term);
     }
 
     public void verifyUserSeeSearchResult(String term) {

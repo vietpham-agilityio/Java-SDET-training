@@ -1,6 +1,16 @@
 package object_behaviors.rules;
 
-import object_behaviors.GuiElement;
+import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.WrapsElement;
 
-public interface WebElement extends GuiElement {
+public interface WebElement {
+    WebElementFacade getWrappedElement();
+
+    void click();
+
+    void sendKeys(String text);
+
+    void typeAndEnter(String text);
+
+    boolean isDisplayed();
 }
