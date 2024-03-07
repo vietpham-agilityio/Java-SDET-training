@@ -3,7 +3,7 @@ package object_behaviors;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
-public abstract class AbstractGuiElement extends PageObject implements IGuiElement {
+public abstract class AbstractGuiElement extends PageObject implements GuiElement {
     protected String name;
     protected WebElementFacade element;
 
