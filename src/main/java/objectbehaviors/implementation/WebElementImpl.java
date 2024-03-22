@@ -12,23 +12,28 @@ public class WebElementImpl extends PageObject implements WebElement {
     }
 
     @Override
+    public WebElementFacade getWrappedElement() {
+        return this.element;
+    }
+
+    @Override
     public void click() {
-        this.element.click();
+        element.click();
     }
 
     @Override
     public void sendKeys(String text) {
-        this.element.clear();
-        this.element.sendKeys(text);
+        element.clear();
+        element.sendKeys(text);
     }
 
     @Override
     public void typeAndEnter(String text) {
-        this.element.typeAndEnter(text);
+        element.typeAndEnter(text);
     }
 
     @Override
     public boolean isDisplayed() {
-        return this.element.isDisplayed();
+        return element.isDisplayed();
     }
 }
