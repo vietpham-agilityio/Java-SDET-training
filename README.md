@@ -18,7 +18,7 @@ src
       + actions
       + constants
       + helpers
-      + object_behaviors
+      + objectbehaviors
       + rules
       + pages
   + test

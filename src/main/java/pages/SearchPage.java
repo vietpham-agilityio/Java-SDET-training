@@ -1,8 +1,8 @@
 package pages;
 
 import net.serenitybdd.core.pages.PageObject;
-import object_behaviors.implementation.WebElementImpl;
-import object_behaviors.rules.WebElement;
+import objectbehaviors.implementation.WebElementImpl;
+import objectbehaviors.rules.WebElement;
 import org.openqa.selenium.By;
 
 public class SearchPage extends PageObject {
