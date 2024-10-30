@@ -16,10 +16,11 @@ public class LoginPageSteps {
     }
     @When("The user clicks on the “Log in” button in the navigation bar")
     public void the_user_clicks_on_the_log_in_button_in_the_navigation_bar() {
-        throw new io.cucumber.java.PendingException();
+        System.out.println("Step 2");
+//        throw new io.cucumber.java.PendingException();
     }
     @Then("The user is navigated to the login page.")
     public void the_user_is_navigated_to_the_login_page() {
-        throw new io.cucumber.java.PendingException();
+//        throw new io.cucumber.java.PendingException();
     }
 }

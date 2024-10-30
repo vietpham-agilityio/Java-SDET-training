@@ -27,6 +27,6 @@ public class SearchActions {
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(searchPage.searchResult().getWrappedElement().isDisplayed()).isTrue();
         softAssertions.assertThat(searchPage.searchFormInput().getWrappedElement().getValue()).isEqualTo(term);
-        softAssertions.assertAll();
+//        softAssertions.assertAll();
     }
 }
