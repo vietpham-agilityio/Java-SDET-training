@@ -6,11 +6,6 @@ import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
 import net.thucydides.model.util.EnvironmentVariables;
 
 import org.assertj.core.api.SoftAssertions;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.By;
 
 import contants.SerenityConfigConstants;
 
@@ -18,8 +13,6 @@ import pages.HomePage;
 import pages.LoginPage;
 
 public class AuthenticationActions {
-
-    public static WebDriver driver;
 
     private LoginPage loginPage;
     private HomePage homePage;
