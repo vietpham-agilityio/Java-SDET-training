@@ -33,7 +33,16 @@ public class WebElementImpl extends PageObject implements WebElement {
     }
 
     @Override
+    public void typeInto(String text) {element.type(text);}
+
+    @Override
     public boolean isDisplayed() {
         return element.isDisplayed();
     }
+
+    @Override
+    public boolean isVisible() {return element.isVisible();}
+
+    @Override
+    public void waitUntilVisible() {element.waitUntilVisible();}
 }

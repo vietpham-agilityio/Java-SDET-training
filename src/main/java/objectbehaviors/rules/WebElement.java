@@ -11,5 +11,11 @@ public interface WebElement {
 
     void typeAndEnter(String text);
 
+    void typeInto(String text);
+
+    boolean isVisible();
+
     boolean isDisplayed();
+
+    void waitUntilVisible();
 }
