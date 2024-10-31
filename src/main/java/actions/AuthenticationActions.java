@@ -35,6 +35,11 @@ public class AuthenticationActions {
         loginPage.passwordInput().sendKeys(password);
     }
 
+    public void typeInvalidCredentials(String username, String password) {
+        loginPage.emailInput().sendKeys(username);
+        loginPage.passwordInput().sendKeys(password);
+    }
+
     public void clickLoginButton() {
         loginPage.loginButton().click();
     }
@@ -42,6 +47,12 @@ public class AuthenticationActions {
     public void verifyUserLoggedIn() {
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(homePage.profileImage().isDisplayed()).as("Profile image of user when logged").isTrue();
+        softAssertions.assertAll();
+    }
+
+    public void verifyUserLogInFailed() {
+        SoftAssertions softAssertions = new SoftAssertions();
+        softAssertions.assertThat(loginPage.unableLoginMessage().isDisplayed()).as("Error message appear when user enters invalid credentials").isTrue();
         softAssertions.assertAll();
     }
 }
