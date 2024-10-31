@@ -1,24 +1,28 @@
 package actions;
 
-import contants.SerenityConfigConstants;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.di.SerenityInfrastructure;
 import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
 import net.thucydides.model.util.EnvironmentVariables;
-import objectbehaviors.implementation.WebElementImpl;
+
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import pages.LoginPage;
 import org.openqa.selenium.By;
+
+import contants.SerenityConfigConstants;
+
+import pages.HomePage;
+import pages.LoginPage;
 
 public class AuthenticationActions {
 
     public static WebDriver driver;
 
     private LoginPage loginPage;
+    private HomePage homePage;
 
     public void navigateToLoginPage() {
         EnvironmentVariables environmentVariables = SerenityInfrastructure.getEnvironmentVariables();
@@ -36,12 +40,8 @@ public class AuthenticationActions {
     }
 
     public void verifyUserLoggedIn() {
-        ChromeOptions options = new ChromeOptions();
-        driver = new ChromeDriver(options);
-        WebElement ProfileImage = driver.findElement(By.id("nav-profile-image"));
-
         SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(ProfileImage.isDisplayed()).as("Profile image of user when logged").isTrue();
+        softAssertions.assertThat(homePage.profileImage().isDisplayed()).as("Profile image of user when logged").isTrue();
         softAssertions.assertAll();
     }
 }
