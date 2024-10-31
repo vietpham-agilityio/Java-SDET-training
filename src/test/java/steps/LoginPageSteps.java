@@ -20,6 +20,11 @@ public class LoginPageSteps {
         authenticationActions.typeCredentials("repsweet080303@gmail.com", "AsusZenbook12123412!");
     }
 
+    @Given("the user enters a invalid username and password on page login")
+    public void the_user_enters_a_invalid_username_and_password_on_page_login() {
+        authenticationActions.typeInvalidCredentials("repsweet080303@gmail.com", "AsusZenbook");
+    }
+
     @When("click on the button login on page login")
     public void click_on_the_button_login_on_page_login() {
         authenticationActions.clickLoginButton();
@@ -28,5 +33,10 @@ public class LoginPageSteps {
     @Then("verify user is able to login successfully")
     public void verify_user_is_able_to_login_successfully() {
         authenticationActions.verifyUserLoggedIn();
+    }
+
+    @Then("verify user is unable to login")
+    public void verify_user_is_unable_to_login() {
+        authenticationActions.verifyUserLogInFailed();
     }
 }

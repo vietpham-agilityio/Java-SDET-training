@@ -8,7 +8,8 @@ import org.openqa.selenium.By;
 public class LoginPage extends PageObject {
     private final By login_button = By.xpath("//input[@type='submit' and @value='Log in']"),
     email_input = By.xpath("//input[@name='user[email]']"),
-    password_input = By.xpath("//input[@name='user[password]']");
+    password_input = By.xpath("//input[@name='user[password]']"),
+    unable_login_message = By.xpath("//strong[contains(text(), 'Unable to login.')]");
 
 
     public WebElement loginButton() {
@@ -22,4 +23,9 @@ public class LoginPage extends PageObject {
     public WebElement passwordInput() {
         return new WebElementImpl($(password_input));
     }
+
+    public WebElement unableLoginMessage() {
+        return new WebElementImpl($(unable_login_message));
+    }
+
 }
