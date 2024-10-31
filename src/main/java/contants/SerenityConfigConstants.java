@@ -2,5 +2,5 @@ package contants;
 
 public interface SerenityConfigConstants {
     String BASEURL = "base.url";
-    String DEVURL = "dev.url";
+    String DEV_LOGIN_URL = "dev.login.url";
 }
