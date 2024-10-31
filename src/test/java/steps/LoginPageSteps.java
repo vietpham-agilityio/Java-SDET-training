@@ -1,6 +1,6 @@
 package steps;
 
-import actions.AuthenActions;
+import actions.AuthenticationActions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,19 +8,25 @@ import net.serenitybdd.annotations.Steps;
 
 public class LoginPageSteps {
     @Steps
-    private AuthenActions authenActions;
+    private AuthenticationActions authenticationActions;
 
-    @Given("The user is on Dev page")
-    public void the_user_is_on_dev_page() {
-        authenActions.navigateToPage();
+    @Given("the user is on login page")
+    public void the_user_is_on_login_page() {
+       authenticationActions.navigateToLoginPage();
     }
-    @When("The user clicks on the “Log in” button in the navigation bar")
-    public void the_user_clicks_on_the_log_in_button_in_the_navigation_bar() {
-        System.out.println("Step 2");
-//        throw new io.cucumber.java.PendingException();
+
+    @Given("the user enters a valid username and password on page login")
+    public void the_user_enters_a_valid_username_and_password_on_page_login() {
+        authenticationActions.typeCredentials("repsweet080303@gmail.com", "AsusZenbook12123412!");
     }
-    @Then("The user is navigated to the login page.")
-    public void the_user_is_navigated_to_the_login_page() {
-//        throw new io.cucumber.java.PendingException();
+
+    @When("click on the button login on page login")
+    public void click_on_the_button_login_on_page_login() {
+        authenticationActions.clickLoginButton();
+    }
+
+    @Then("verify user is able to login successfully")
+    public void verify_user_is_able_to_login_successfully() {
+        authenticationActions.verifyUserLoggedIn();
     }
 }
