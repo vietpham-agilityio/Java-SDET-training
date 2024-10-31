@@ -10,7 +10,7 @@ public class AuthenActions {
 
     public void navigateToPage() {
         EnvironmentVariables environmentVariables = SerenityInfrastructure.getEnvironmentVariables();
-        String url = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty(SerenityConfigConstants.DEVURL);
+        String url = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty(SerenityConfigConstants.DEV_LOGIN_URL);
         Serenity.getDriver().get(url);
     }
 }
