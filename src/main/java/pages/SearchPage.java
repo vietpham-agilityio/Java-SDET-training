@@ -6,19 +6,20 @@ import objectbehaviors.rules.WebElement;
 import org.openqa.selenium.By;
 
 public class SearchPage extends PageObject {
-    private final By search_input = By.id("searchbox_input"),
-        search_result = By.xpath("//article"),
-        search_form_input = By.id("search_form_input");
+    private final By search_input = By.id("search-input"),
+        search_results = By.id("substories"),
+        search_form_result = By.id("search-typeahead");
 
     public WebElement searchInput() {
         return new WebElementImpl($(search_input));
     }
 
-    public WebElement searchResult() {
-        return new WebElementImpl($(search_result));
+    public WebElement searchFormResults() {
+        return new WebElementImpl($(search_form_result));
     }
 
-    public WebElement searchFormInput() {
-        return new WebElementImpl($(search_form_input));
+    public WebElement searchResults() {
+        return new WebElementImpl($(search_results));
     }
+
 }

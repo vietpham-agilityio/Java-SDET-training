@@ -11,9 +11,9 @@ public class SearchSteps {
     @Steps
     private SearchActions searchActions;
 
-    @Given("user is researching things on the internet")
-    public void researching_things() {
-        searchActions.navigateToPage();
+    @Given("user is researching articles on the DEV community")
+    public void user_is_researching_articles_on_the_dev_community() {
+        searchActions.navigateToHomePage();
     }
 
     @When("user looks up {string}")
@@ -21,8 +21,8 @@ public class SearchSteps {
         searchActions.searchFor(term);
     }
 
-    @Then("user should see information about {string}")
-    public void should_see_information_about(String term) {
+    @Then("user should see articles have title match with {string}")
+    public void user_should_see_articles_have_title_match_with(String term) {
         searchActions.verifyUserSeeSearchResult(term);
     }
 }
