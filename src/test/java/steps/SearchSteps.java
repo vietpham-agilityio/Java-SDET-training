@@ -11,18 +11,18 @@ public class SearchSteps {
     @Steps
     private SearchActions searchActions;
 
-    @Given("user is researching articles on the DEV community")
-    public void user_is_researching_articles_on_the_dev_community() {
+    @Given("the user is on the DEV community page")
+    public void the_user_is_on_the_dev_community_page() {
         searchActions.navigateToHomePage();
     }
 
-    @When("user looks up {string}")
-    public void searches_for(String term) {
+    @When("the user enters {string} inside the search input")
+    public void the_user_enters_inside_the_search_input(String term) {
         searchActions.searchFor(term);
     }
 
-    @Then("user should see articles have title match with {string}")
-    public void user_should_see_articles_have_title_match_with(String term) {
+    @Then("the user should see a list of articles with titles that match the entered {string}")
+    public void the_user_should_see_a_list_of_articles_with_titles_that_match_the_entered(String term) {
         searchActions.verifyUserSeeSearchResult(term);
     }
 }
