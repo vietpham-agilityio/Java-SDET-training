@@ -19,4 +19,7 @@ public interface WebElement {
 
     boolean isDisplayed();
 
-    void waitUntilVisible(Duration waitAtMost);}
+    void waitUntilVisible(Duration waitAtMost);
+
+    String getText();
+}

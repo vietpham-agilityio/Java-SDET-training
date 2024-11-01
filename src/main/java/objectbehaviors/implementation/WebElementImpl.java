@@ -44,6 +44,11 @@ public class WebElementImpl extends PageObject implements WebElement {
     }
 
     @Override
+    public String getText() {
+        return element.getText();
+    }
+
+    @Override
     public boolean isVisible() {return element.isVisible();}
 
     @Override
