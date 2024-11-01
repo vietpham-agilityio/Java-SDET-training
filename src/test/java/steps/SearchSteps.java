@@ -21,8 +21,18 @@ public class SearchSteps {
         searchActions.searchFor(term);
     }
 
+    @When("click the search icon inside input search")
+    public void click_the_search_icon_inside_input_search() {
+        searchActions.clickSearchIcon();
+    }
+
+    @Then("verify user is able to see list article on search result session")
+    public void verify_user_is_able_to_see_list_article_on_search_result_session() {
+        searchActions.verifyUserSeeSearchResultSession("BDD");
+    }
+
     @Then("verify user is able to see list article have title match {string} on dropdown result")
     public void verify_user_is_able_to_see_list_article_have_title_match_on_dropdown_result(String term) {
-        searchActions.verifyUserSeeSearchResult(term);
+        searchActions.verifyUserSeeSearchResultDropdown(term);
     }
 }
