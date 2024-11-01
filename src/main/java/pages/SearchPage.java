@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 public class SearchPage extends PageObject {
     private final By search_input = By.id("search-input"),
         search_results = By.id("substories"),
-        search_form_result = By.id("search-typeahead");
+        search_form_result = By.xpath("//ul[@id='search-typeahead']//li//strong");
 
     public WebElement searchInput() {
         return new WebElementImpl($(search_input));

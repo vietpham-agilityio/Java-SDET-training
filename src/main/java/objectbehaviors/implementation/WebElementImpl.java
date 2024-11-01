@@ -3,6 +3,9 @@ package objectbehaviors.implementation;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import objectbehaviors.rules.WebElement;
+import org.awaitility.Awaitility;
+
+import java.time.Duration;
 
 public class WebElementImpl extends PageObject implements WebElement {
     protected WebElementFacade element;
@@ -44,5 +47,12 @@ public class WebElementImpl extends PageObject implements WebElement {
     public boolean isVisible() {return element.isVisible();}
 
     @Override
-    public void waitUntilVisible() {element.waitUntilVisible();}
+    public void waitUntilVisible(Duration waitAtMost) {
+        Awaitility.await()
+                .atMost(waitAtMost)
+                .with()
+                .ignoreExceptions()
+                .pollInterval(Duration.ofMillis(500))
+                .until(this::isVisible);
+    }
 }

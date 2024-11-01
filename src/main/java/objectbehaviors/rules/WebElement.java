@@ -2,6 +2,8 @@ package objectbehaviors.rules;
 
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import java.time.Duration;
+
 public interface WebElement {
     WebElementFacade getWrappedElement();
 
@@ -17,5 +19,4 @@ public interface WebElement {
 
     boolean isDisplayed();
 
-    void waitUntilVisible();
-}
+    void waitUntilVisible(Duration waitAtMost);}

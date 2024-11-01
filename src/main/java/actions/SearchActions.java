@@ -6,9 +6,7 @@ import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
 import net.thucydides.model.util.EnvironmentVariables;
 import contants.SerenityConfigConstants;
 import org.assertj.core.api.SoftAssertions;
-import org.openqa.selenium.WebElement;
 import pages.SearchPage;
-
 
 public class SearchActions {
 
@@ -21,13 +19,13 @@ public class SearchActions {
     }
 
     public void searchFor(String term) {
+        searchPage.searchInput().click();
         searchPage.searchInput().sendKeys(term);
     }
 
     public void verifyUserSeeSearchResult(String term) {
         SoftAssertions softAssertions = new SoftAssertions();
-        searchPage.searchFormResults().waitUntilVisible();
-
+        softAssertions.assertThat(searchPage.searchFormResults().isDisplayed()).isTrue();
         softAssertions.assertAll();
     }
 }
