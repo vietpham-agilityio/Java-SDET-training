@@ -16,13 +16,13 @@ public class SearchSteps {
         searchActions.navigateToHomePage();
     }
 
-    @When("the user enters {string} inside the search input")
-    public void the_user_enters_inside_the_search_input(String term) {
+    @When("enters {string} inside the input search on home page")
+    public void enters_inside_the_input_search_on_home_page(String term) {
         searchActions.searchFor(term);
     }
 
-    @Then("the user should see a list of articles with titles that match the entered {string}")
-    public void the_user_should_see_a_list_of_articles_with_titles_that_match_the_entered(String term) {
+    @Then("verify user is able to see list article have title match {string} on dropdown result")
+    public void verify_user_is_able_to_see_list_article_have_title_match_on_dropdown_result(String term) {
         searchActions.verifyUserSeeSearchResult(term);
     }
 }
