@@ -41,24 +41,7 @@ public class BasePage extends PageObject{
                 elementType,
                 label
         );
-
         return By.xpath(xpathFormat);
-    }
-
-    @NotNull
-    public By xpathTableHeaderByText(final String text) {
-        String xpathFormat = MessageFormat.format(
-                "//th//div[contains(text(),''{0}'')]",
-                text
-        );
-        return By.xpath(xpathFormat);
-    }
-
-    @NotNull
-    public WebElement xpathTableHeadingByText(String text) {
-        By elementLocator = xpathTableHeaderByText(text);
-
-        return new WebElementImpl($(elementLocator));
     }
 
     @NotNull
@@ -67,5 +50,4 @@ public class BasePage extends PageObject{
 
         return new WebElementImpl($(elementLocator));
     }
-
 }

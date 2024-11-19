@@ -1,6 +1,5 @@
 package actions;
 
-import helpers.TableRow;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.di.SerenityInfrastructure;
 import net.serenitybdd.core.pages.WebElementFacade;
