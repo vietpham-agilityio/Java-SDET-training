@@ -15,7 +15,7 @@ public class HomeSteps {
     @Given("the user is on Home page")
     public void the_user_is_on_home_page() {
         homeActions.navigateToHomePage();
-        homeActions.verifyUserOnHomePage();
+        homeActions.verifyDisplayTableHeaders();
     }
 
     @When("the user click on Expand all button")
@@ -25,6 +25,7 @@ public class HomeSteps {
 
     @Then("verify default display ten employees per page")
     public void verify_default_display_ten_employees_per_page() {
-
+        homeActions.verifyDisplayTableRows(10);
+        homeActions.verifyDataRow(12);
     }
 }
