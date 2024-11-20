@@ -26,7 +26,7 @@ public class HomeSteps {
 
     @And("the user see list options dropdown")
     public void the_user_see_list_options_dropdown() {
-
+        homeActions.verifySelectPerPageOptionIsVisible();
     }
 
     @When("the user select {string} from the list options dropdown")

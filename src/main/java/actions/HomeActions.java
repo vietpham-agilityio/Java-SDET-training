@@ -34,6 +34,10 @@ public class HomeActions extends BasePage {
         clickElement(homePage.inputSelectRow(), Duration.ofSeconds(2));
     }
 
+    public void verifySelectPerPageOptionIsVisible() {
+       assertThat(homePage.selectPerPageOption().isVisible()).isTrue();
+    }
+
     public void verifyDisplayTableHeaders() {
         List<String> listHeaders = employeeTablePage.getTableHeaders();
         assertThat(listHeaders)
