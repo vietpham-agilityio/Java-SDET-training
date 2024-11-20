@@ -1,5 +1,6 @@
 package pages;
 
+import helpers.TableRow;
 import net.serenitybdd.core.pages.WebElementFacade;
 import objectbehaviors.rules.IDataTable;
 import org.openqa.selenium.By;
@@ -15,7 +16,7 @@ public class EmployeeTablePage extends BasePage implements IDataTable {
     private static final By TABLE_ROWS = By.xpath("//tr[contains(@class, 'MRT_TableBodyRow-module_root')]");
 
     public EmployeeTableLocatorPage getTableLocator() {
-        return new EmployeeTableLocatorPage();
+        return new EmployeeTableLocatorPage(getRowElements());
     }
 
     @Override
@@ -24,6 +25,12 @@ public class EmployeeTablePage extends BasePage implements IDataTable {
 
         String rowIndex = find(By.xpath(xpathExpression )).getAttribute("data-index");
         return Integer.parseInt(rowIndex);
+    }
+
+    @Override
+    public List<TableRow> getDataTable() {
+        EmployeeTableLocatorPage tableLocator = getTableLocator();
+        return tableLocator.getAllRowsData();
     }
 
     @Override
