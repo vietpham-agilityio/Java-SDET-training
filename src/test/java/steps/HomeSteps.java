@@ -27,5 +27,6 @@ public class HomeSteps {
     public void verify_default_display_ten_employees_per_page() {
         homeActions.verifyDisplayTableRows(10);
         homeActions.verifyDataRow(12);
+        homeActions.verifyDataTable();
     }
 }

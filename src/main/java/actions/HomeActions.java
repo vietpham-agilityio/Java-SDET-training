@@ -53,4 +53,8 @@ public class HomeActions extends BasePage {
 
         softAssertions.assertAll();
     }
+
+    public void verifyDataTable() {
+        assertThat(employeeTablePage.getDataTable()).isNotEmpty();
+    }
 }
