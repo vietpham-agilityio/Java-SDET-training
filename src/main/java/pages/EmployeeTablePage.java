@@ -7,15 +7,22 @@ import org.openqa.selenium.By;
 import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
-import helpers.TableRow;
 
 public class EmployeeTablePage extends BasePage implements IDataTable {
 
+    private static final String TABLE_HEADER = "//*[text()='%s']/ancestor::th";
     private static final By TABLE_HEADERS = By.xpath("//div[contains(@class, 'mrt-table-head-cell-content-wrapper')]");
     private static final By TABLE_ROWS = By.xpath("//tr[contains(@class, 'MRT_TableBodyRow-module_root')]");
 
     public EmployeeTableLocatorPage getTableLocator() {
-        return new EmployeeTableLocatorPage(getRowElements());
+        return new EmployeeTableLocatorPage();
+    }
+
+    public int getColumnIndex(String columnName) {
+        var xpathExpression  = String.format(TABLE_HEADER, columnName);
+
+        String rowIndex = find(By.xpath(xpathExpression )).getAttribute("data-index");
+        return Integer.parseInt(rowIndex);
     }
 
     @Override
@@ -35,43 +42,10 @@ public class EmployeeTablePage extends BasePage implements IDataTable {
         return findAll(TABLE_ROWS);
     }
 
-    @Override
-    public String getNameFromRow(int rowIndex) {
-        EmployeeTableLocatorPage locator = getTableLocator();
-        return find(locator.getNameByRowIndex(rowIndex)).getText();
-    }
+    public String getDataFromRow(int rowIndex, String columnName) {
+        int columnIndex = getColumnIndex(columnName);
 
-    @Override
-    public String getEmailFromRow(int rowIndex) {
-        EmployeeTableLocatorPage locator = getTableLocator();
-        return find(locator.getEmailByRowIndex(rowIndex)).getText();
-    }
-
-    @Override
-    public String getSalaryFromRow(int rowIndex) {
-        EmployeeTableLocatorPage locator = getTableLocator();
-        return find(locator.getSalaryByRowIndex(rowIndex)).getText();
-    }
-
-    @Override
-    public String getJobTitleFromRow(int rowIndex) {
-        EmployeeTableLocatorPage locator = getTableLocator();
-        return find(locator.getJobTitleByRowIndex(rowIndex)).getText();
-    }
-
-    @Override
-    public String getStartDateFromRow(int rowIndex) {
-        EmployeeTableLocatorPage locator = getTableLocator();
-        return find(locator.getStartDateByRowIndex(rowIndex)).getText();
-    }
-
-    @Override
-    public List<TableRow> getAllRowLocators() {
-        return getTableLocator().getAllRowsData();
-    }
-
-    @Override
-    public String getColumnValue(int row, String columnName) {
-        return "";
+        EmployeeTableLocatorPage tableLocator = getTableLocator();
+        return find(tableLocator.getDataByRowIndex(rowIndex, columnIndex)).getText();
     }
 }
