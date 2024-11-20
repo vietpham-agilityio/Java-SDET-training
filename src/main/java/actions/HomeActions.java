@@ -6,15 +6,14 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
 import net.thucydides.model.util.EnvironmentVariables;
 import constants.SerenityConfigConstants;
-import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import pages.BasePage;
 import pages.EmployeeTablePage;
 import pages.HomePage;
-
 import org.assertj.core.api.SoftAssertions;
-
 import java.time.Duration;
 import java.util.List;
+
+import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 public class HomeActions extends BasePage {
 
@@ -46,11 +45,11 @@ public class HomeActions extends BasePage {
     public void verifyDataRow(int rowIndex) {
         SoftAssertions softAssertions = new SoftAssertions();
 
-        softAssertions.assertThat(employeeTablePage.getNameFromRow(rowIndex)).isEqualTo("Silas Hermiston");
-        softAssertions.assertThat(employeeTablePage.getEmailFromRow(rowIndex)).isEqualTo("Jane_Hoeger42@gmail.com");
-        softAssertions.assertThat(employeeTablePage.getSalaryFromRow(rowIndex)).isEqualTo("$64,532");
-        softAssertions.assertThat(employeeTablePage.getJobTitleFromRow(rowIndex)).isEqualTo("International Operations Consultant");
-        softAssertions.assertThat(employeeTablePage.getStartDateFromRow(rowIndex)).isEqualTo("6/3/2022");
+        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Name")).isEqualTo("Silas Hermiston");
+        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Email")).isEqualTo("Jane_Hoeger42@gmail.com");
+        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Salary")).isEqualTo("$64,532");
+        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Job Title")).isEqualTo("International Operations Consultant");
+        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Start Date")).isEqualTo("6/3/2022");
 
         softAssertions.assertAll();
     }
