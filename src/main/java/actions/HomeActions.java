@@ -36,10 +36,10 @@ public class HomeActions extends BasePage {
                 .containsExactly("Name", "Email", "Salary", "Job Title", "Start Date");
     }
 
-    public void verifyDisplayTableRows(int rows) {
+    public void verifyDisplayTableRows(int totalRow) {
         List<WebElementFacade> listRows = employeeTablePage.getRowElements();
         assertThat(listRows.size())
-                .isGreaterThanOrEqualTo(rows);
+                .isGreaterThanOrEqualTo(totalRow);
     }
 
     public void verifyDataRow(int rowIndex) {

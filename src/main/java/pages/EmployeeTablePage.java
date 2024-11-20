@@ -46,6 +46,6 @@ public class EmployeeTablePage extends BasePage implements IDataTable {
         int columnIndex = getColumnIndex(columnName);
 
         EmployeeTableLocatorPage tableLocator = getTableLocator();
-        return find(tableLocator.getDataByRowIndex(rowIndex, columnIndex)).getText();
+        return find(tableLocator.getRowElement(rowIndex, columnIndex)).getText();
     }
 }
