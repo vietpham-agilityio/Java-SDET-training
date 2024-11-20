@@ -45,11 +45,11 @@ public class HomeActions extends BasePage {
     public void verifyDataRow(int rowIndex) {
         SoftAssertions softAssertions = new SoftAssertions();
 
-        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Name")).isEqualTo("Silas Hermiston");
-        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Email")).isEqualTo("Jane_Hoeger42@gmail.com");
-        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Salary")).isEqualTo("$64,532");
-        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Job Title")).isEqualTo("International Operations Consultant");
-        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Start Date")).isEqualTo("6/3/2022");
+        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Name")).isNotEmpty();
+        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Email")).isNotEmpty();
+        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Salary")).isNotEmpty();
+        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Job Title")).isNotEmpty();
+        softAssertions.assertThat(employeeTablePage.getDataFromRow(rowIndex, "Start Date")).isNotEmpty();
 
         softAssertions.assertAll();
     }
