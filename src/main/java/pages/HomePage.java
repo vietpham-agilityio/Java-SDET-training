@@ -15,4 +15,9 @@ public class HomePage extends BasePage {
     public WebElement inputSelectRow() {
         return new WebElementImpl($(INPUT_SELECT_ROW));
     }
+
+    public WebElement selectPerPageOption() {
+        By selectOptionXpath = xpathByContainsClass("div", "mantine-Select-dropdown");
+        return new WebElementImpl($(selectOptionXpath));
+    }
 }

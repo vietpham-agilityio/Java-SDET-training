@@ -45,6 +45,16 @@ public class BasePage extends PageObject{
     }
 
     @NotNull
+    public By xpathByContainsClass(final String elementType, final String className ) {
+        String xpathFormat = MessageFormat.format(
+                "//{0}[contains(@class, ''{1}'')]",
+                elementType,
+                className
+        );
+        return By.xpath(xpathFormat);
+    }
+
+    @NotNull
     public WebElement xpathButtonByAriaLabel(String label) {
         By elementLocator = xpathByAriaLabel("button",label);
 
