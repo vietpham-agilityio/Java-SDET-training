@@ -30,6 +30,10 @@ public class HomeActions extends BasePage {
         clickElement(homePage.buttonExpandAll(), Duration.ofSeconds(2));
     }
 
+    public void clickOnInputSelectRow() {
+        clickElement(homePage.inputSelectRow(), Duration.ofSeconds(2));
+    }
+
     public void verifyDisplayTableHeaders() {
         List<String> listHeaders = employeeTablePage.getTableHeaders();
         assertThat(listHeaders)
