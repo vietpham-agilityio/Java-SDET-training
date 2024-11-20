@@ -18,6 +18,7 @@ public class EmployeeTablePage extends BasePage implements IDataTable {
         return new EmployeeTableLocatorPage();
     }
 
+    @Override
     public int getColumnIndex(String columnName) {
         var xpathExpression  = String.format(TABLE_HEADER, columnName);
 
@@ -42,6 +43,7 @@ public class EmployeeTablePage extends BasePage implements IDataTable {
         return findAll(TABLE_ROWS);
     }
 
+    @Override
     public String getDataFromRow(int rowIndex, String columnName) {
         int columnIndex = getColumnIndex(columnName);
 
